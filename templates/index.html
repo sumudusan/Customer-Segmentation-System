@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Segmentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+<h1>📊 Customer Segmentation System</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+</form>
+
+{% if segments %}
+    <h3>Customer Segments</h3>
+    <ul>
+        {% for key, value in segments.items() %}
+            <li>{{ key }} → {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<canvas id="chart"></canvas>
+
+{% if income and spending and clusters %}
+<script>
+    const data = {
+        datasets: [{
+            label: 'Customers',
+            data: [
+                {% for i in range(income|length) %}
+                {x: {{ income[i] }}, y: {{ spending[i] }}},
+                {% endfor %}
+            ]
+        }]
+    };
+
+    new Chart(document.getElementById('chart'), {
+        type: 'scatter',
+        data: data,
+        options: {
+            scales: {
+                x: { title: { display: true, text: 'Income' } },
+                y: { title: { display: true, text: 'Spending Score' } }
+            }
+        }
+    });
+</script>
+{% endif %}
+
+</body>
+</html>
