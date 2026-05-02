@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-👉 https://your-project-2-link.onrender.com
+👉 https://customer-segmentation-system-otpm.onrender.com
 
 ---
 
