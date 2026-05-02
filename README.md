@@ -164,3 +164,20 @@ This project demonstrates:
 * Full-stack ML deployment
 
 ---
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home](screenshots/home.png)
+
+---
+
+### 📊 Segmentation Result
+
+![Segments](screenshots/upload.png)
+
+---
+
+### 📈 Customer Chart
+
+![Chart](screenshots/chart.png)
