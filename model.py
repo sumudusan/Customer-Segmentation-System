@@ -10,14 +10,17 @@ def process_data(df):
     return df
 
 
-def label_customer(cluster):
-    if cluster == 2:
+def label_customer(row):
+    income = row["Annual Income (k$)"]
+    spending = row["Spending Score (1-100)"]
+
+    if income > 70 and spending > 70:
         return "VIP"
-    elif cluster == 1:
+    elif income > 70 and spending < 40:
         return "Potential"
-    elif cluster == 0:
-        return "Average"
-    elif cluster == 3:
+    elif income < 40 and spending < 40:
         return "Low Value"
-    elif cluster == 4:
+    elif income < 40 and spending > 60:
         return "Young Spenders"
+    else:
+        return "Average"

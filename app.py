@@ -16,7 +16,7 @@ def upload():
 
     df = process_data(df)
 
-    df["Segment"] = df["Cluster"].apply(label_customer)
+    df["Segment"] = df.apply(label_customer, axis=1)
 
     segment_counts = df["Segment"].value_counts().to_dict()
 
